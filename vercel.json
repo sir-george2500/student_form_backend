@@ -3,7 +3,6 @@
     {
       "src": "main.py",
       "use": "@vercel/python",
-      "routes": [{ "src": "main.py", "dest": "/" }]
     }
   ]
 }
