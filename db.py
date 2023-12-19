@@ -52,6 +52,18 @@ def insert_student_data(student_form):
         if connection.is_connected():
             cursor = connection.cursor()
 
+            # Check if the student with the same first_name and last_name already exists
+            check_duplicate_query = """
+                SELECT id FROM students
+                WHERE first_name = %(first_name)s AND last_name = %(last_name)s;
+            """
+            cursor.execute(check_duplicate_query, student_form.dict())
+            duplicate_result = cursor.fetchone()
+
+            if duplicate_result:
+                raise HTTPException(status_code=400, detail="Student with the same first_name and last_name already exists")
+
+            # If not duplicate, proceed with the insertion
             insert_query = """
                 INSERT INTO students
                 (first_name, last_name, middle_name, date_of_birth, tech_knowledge,
@@ -75,4 +87,3 @@ def insert_student_data(student_form):
     finally:
         if connection and connection.is_connected():
             connection.close()
-
