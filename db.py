@@ -41,10 +41,6 @@ def create_students_table():
         print(f"Error: {e}")
         raise HTTPException(status_code=500, detail="Error creating 'students' table")
 
-    finally:
-        if connection and connection.is_connected():
-            connection.close()
-
 def insert_student_data(student_form):
     connection = None
     try:
@@ -54,16 +50,16 @@ def insert_student_data(student_form):
 
             # Check if the student with the same first_name and last_name already exists
             check_duplicate_query = """
-                SELECT id FROM students
+                SELECT COUNT(*) FROM students
                 WHERE first_name = %(first_name)s AND last_name = %(last_name)s;
             """
             cursor.execute(check_duplicate_query, student_form.dict())
-            duplicate_result = cursor.fetchone()
+            duplicate_count = cursor.fetchone()[0]  # Fetch the count
 
-            if duplicate_result:
-                raise HTTPException(status_code=400, detail="Student with the same first_name and last_name already exists")
+            if duplicate_count > 0:
+                raise HTTPException(status_code=400, detail="Student already register")
 
-            # If not duplicate, proceed with the insertion
+            # Insert data into 'students' table
             insert_query = """
                 INSERT INTO students
                 (first_name, last_name, middle_name, date_of_birth, tech_knowledge,
