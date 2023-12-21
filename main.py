@@ -8,7 +8,7 @@ app = FastAPI(title="Student Register Form", docs_url="/")
 
 # Configure CORS middleware
 origins = [
-        "http://localhost:3000",
+        "https://student-form-frontend.vercel.app/",
         # Add more allowed origins if needed
         ]
 app.add_middleware(
