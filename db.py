@@ -51,13 +51,13 @@ def insert_student_data(student_form):
             # Check if the student with the same first_name and last_name already exists
             check_duplicate_query = """
                 SELECT COUNT(*) FROM students
-                WHERE first_name = %(first_name)s AND last_name = %(last_name)s;
+                WHERE email_address = %(email_address)s;
             """
             cursor.execute(check_duplicate_query, student_form.dict())
             duplicate_count = cursor.fetchone()[0]  # Fetch the count
 
             if duplicate_count > 0:
-                raise HTTPException(status_code=400, detail="Student already register")
+                raise HTTPException(status_code=400, detail="Student with the same first_name and last_name already exists")
 
             # Insert data into 'students' table
             insert_query = """

@@ -34,15 +34,16 @@ class StudentsForm(BaseModel):
         json_schema_extra = {
             "examples": [
                 {
-            "first_name": "John",
-            "last_name": "Doe",
-            "date_of_birth": "1990-01-01",
-            "tech_knowledge": "Intermediate",
-            "select_course": "Graphic Design",
-            "preferred_attendance_days": "MWF",
-            "email_address": "john.doe@example.com",
-            "phone_number": "1234567890",
-            "home_address": "123 Main Street",
-                },
+                    "first_name": "John",
+                    "last_name": "Doe",
+                    "middle_name":"dealer",
+                    "date_of_birth": "1990-01-01",
+                    "tech_knowledge": "Intermediate",
+                    "select_course": "Graphic Design",
+                    "preferred_attendance_days": "MWF",
+                    "email_address": "john.doe@example.com",
+                    "phone_number": "1234567890",
+                    "home_address": "123 Main Street",
+                    },
             ]
         }
