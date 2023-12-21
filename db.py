@@ -57,7 +57,7 @@ def insert_student_data(student_form):
             duplicate_count = cursor.fetchone()[0]  # Fetch the count
 
             if duplicate_count > 0:
-                raise HTTPException(status_code=400, detail="Student with the same first_name and last_name already exists")
+                raise HTTPException(status_code=400, detail="You have already register")
 
             # Insert data into 'students' table
             insert_query = """

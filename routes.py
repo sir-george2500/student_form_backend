@@ -12,4 +12,4 @@ def create_student(student_form: StudentsForm):
 @router.post("/create-table/")
 def create_students_table_endpoint():
     create_students_table()
-    return {"message": "You have already register!"}
+    return {"message": "Table 'students' created successfully!"}
