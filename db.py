@@ -5,9 +5,9 @@ from mysql.connector import Error
 
 DB_CONFIG = {
     "host": "sql8.freesqldatabase.com",
-    "user": "sql8671370",
-    "password": "Xl9TiDPIfr",
-    "database": "sql8671370",
+    "user": "sql3673373",
+    "password": "EsllsED8rR",
+    "database": "sql3673373",
     "port": 3306,
 }
 
