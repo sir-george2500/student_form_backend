@@ -4,7 +4,7 @@ import mysql.connector
 from mysql.connector import Error
 
 DB_CONFIG = {
-    "host": "sql8.freesqldatabase.com",
+    "host": "sql3.freesqldatabase.com",
     "user": "sql3673373",
     "password": "EsllsED8rR",
     "database": "sql3673373",
