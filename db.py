@@ -4,10 +4,10 @@ import mysql.connector
 from mysql.connector import Error
 
 DB_CONFIG = {
-    "host": "sql3.freesqldatabase.com",
-    "user": "sql3673373",
-    "password": "EsllsED8rR",
-    "database": "sql3673373",
+    "host": "sql8.freesqldatabase.com",
+    "user": "sql8679342",
+    "password": "M7qpx437eD",
+    "database": "sql8679342",
     "port": 3306,
 }
 
